@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    image: web
+    container_name: web
+    working_dir: /code
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    command: python3 manage.py runserver 0.0.0.0:8000
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: django
+      MYSQL_USER: django
+      MYSQL_PASSWORD: django
+    ports:
+      - 3306:3306
