@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>fixed</title>
+</head>
+<body>
+    <form action="{% url 'fixed' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">add</button>
+    </form>
+</body>
+</html>

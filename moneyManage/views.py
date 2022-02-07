@@ -5,6 +5,16 @@ from .models import *
 from .forms import *
 
 # Create your views here.
+class IndexView(TemplateView, LoginRequiredMixin):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.params = {}
+
+    def get(self, request):
+        self.params['fxed'] = Fixed.objects.filter(owner=request.user)
+        self.params['expense'] = Expense.objects.filter(owner=request.user)
+        return render(request, 'moneyManage/index.html', self.params)
+
 class CategoryView(TemplateView, LoginRequiredMixin):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -38,3 +48,20 @@ class ExpenseView(TemplateView, LoginRequiredMixin):
         form = ExpenseForm(request.user, request.POST, instance=model)
         form.save()
         return render(request, 'moneyManage/expense.html', self.params)
+
+class FixedView(TemplateView, LoginRequiredMixin):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.params = {
+            'form': FixedForm()
+        }
+
+    def get(self, request):
+        return render(request, 'moneyManage/fixed.html', self.params)
+
+    def post(self, request):
+        model = Fixed()
+        model.owner = request.user
+        form = FixedForm(request.POST, instance=model)
+        form.save()
+        return render(request, 'moneyManage/fixed.html', self.params)

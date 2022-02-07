@@ -19,3 +19,8 @@ class Expense(models.Model):
 
     class Meta:
         ordering = ('-expense_date',)
+
+class Fixed(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='fixed_owner')
+    content = models.CharField(max_length=50)
+    price = models.IntegerField()
