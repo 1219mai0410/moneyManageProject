@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+body {
+    font-family: "游ゴシック Light", "游ゴシック", "YuGothic", sans-serif;
+    font-weight: 200;
+    color: #555;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.ly_header {
+    position: fixed;
+    width: 100vw;
+    padding-top: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.ly_header_inner {
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.el_logo {
+    font-weight: 100;
+    color: #555;
+}
+
+.bl_header {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bl_header_menuWrapper {
+    width: 100%;
+    text-align: center;
+    border-left: 1px solid #ddd;
+    margin: 5px 0;
+}
+
+.bl_header_menuWrapper.bl_header_menuWrapper__mostright {
+    border-right: 1px solid #ddd;
+}
+
+.bl_header_menu {
+    display: inline-block;
+    width: 100%;
+    color: #555;
+}
+
+.bl_header_menu:hover {
+    color: #ddd;
+}
+
+.ly_content {
+    max-width: 1230px;
+    padding: 0 15px;
+    padding-top: 116px;
+    margin: 0 auto;
+}

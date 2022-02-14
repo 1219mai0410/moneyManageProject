@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link rel="stylesheet" href="{% static 'moneyManage/css/layout.css' %}">
+        {% block static %}{% endblock %}
+    </head>
+    <body>
+        <header class="ly_header">
+            <div class="ly_header_inner">
+                <h1 class="el_logo">hoge</h1>
+                <ul class="bl_header">
+                    <li class="bl_header_menuWrapper"><a class="bl_header_menu" href="/manage/">Index</a></li>
+                    <li class="bl_header_menuWrapper"><a class="bl_header_menu" href="/manage/fixed">Fixed</a></li>
+                    <li class="bl_header_menuWrapper"><a class="bl_header_menu" href="/manage/category">Category</a></li>
+                    <li class="bl_header_menuWrapper bl_header_menuWrapper__mostright"><a class="bl_header_menu" href="/manage/expense">Expense</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="ly_content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

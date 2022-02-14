@@ -1,14 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>expense</title>
-</head>
-<body>
-    <form action="{% url 'expense' %}" method="POST">
+{% extends 'moneyManage/layout.html' %}
+{% load static %}
+
+{% block title %}expense{% endblock %}
+{% block static %}<link rel="stylesheet" href="{% static 'moneyManage/css/expense.css' %}">{% endblock %}
+
+{% block content %}
+<div class="ly_content_inner">
+    <aside class="ly_content_left">
+        <form action="{% url 'fixed' %}" method="POST" class="bl_fixed_form">
+            {% csrf_token %}
+            <h2 class="bl_fixed_formTable_title hp_bt15">Fixed</h2>
+            <table class="bl_fixed_formTable">
+                {{ fixed_form.as_table }}
+                <tr><th></th><td>
+                    <input type="submit" value="Send" class="el_button">
+                </td></tr>
+            </table>
+        </form>
+    </aside>
+    <form action="{% url 'expense' %}" method="POST" class="ly_expense_form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">add</button>
+        <table class="bl_expense_formTable">
+            {{ expense_form.as_table }}
+            <tr><th></th><td>
+                <input type="submit" value="Send" class="el_button">
+            </td></tr>
+        </table>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

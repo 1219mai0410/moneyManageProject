@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.ly_content_inner {
+    display: flex;
+}
+
+.ly_content_left {
+    width: 25%;
+    border-right: 1px solid #ddd;
+    margin-left: 1px;
+    margin-top: 8px;
+}
+
+.bl_fixed_form {
+    width: 75%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.bl_fixed_formTable_title {
+    position: fixed;
+    font-weight: 100;
+    padding: 0 2px;
+}
+
+.bl_fixed_formTable {
+    position: fixed;
+    margin-top: 50px;
+}
+
+.el_formInput {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+.hp_bt15 {
+    margin-bottom: 15px;
+}
+
+.el_button:hover {
+    color: #ddd;
+}
+
+.ly_expense_form {
+    width: 50%;
+    padding-top: 58px;
+    margin: 0 auto;
+}
+
+.bl_expense_formTable {
+    width: 50%;
+    text-align: center;
+}
+.hp_bt30 {
+    margin-bottom: 30px;
+}

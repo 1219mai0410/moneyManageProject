@@ -1,27 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>index</title>
-</head>
-<body>
-    <table class="fixed">
-        {% for data in fxed %}
-        <tr>
-            <td>{{data.content}}</td>
-            <td>{{data.price}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <table class="expense">
-        {% for data in expense %}
-        <tr>
-            <th>{{data.expense_date}}</th>
-            <td>{{data.item}}</td>
-            <td>{{data.category}}</td>
-            <td>{{data.price}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</body>
-</html>
+{% extends 'moneyManage/layout.html' %}
+
+{% block title %}index{% endblock %}
+
+{% block content %}
+<table class="fixed">
+    {% for data in fxed %}
+    <tr>
+        <td>{{data.content}}</td>
+        <td>{{data.price}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<table class="expense">
+    {% for data in expense %}
+    <tr>
+        <th>{{data.expense_date}}</th>
+        <td>{{data.item}}</td>
+        <td>{{data.category}}</td>
+        <td>{{data.price}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

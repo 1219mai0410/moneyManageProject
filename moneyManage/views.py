@@ -35,14 +35,16 @@ class CategoryView(TemplateView, LoginRequiredMixin):
 class ExpenseView(TemplateView, LoginRequiredMixin):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.params = {}
+        self.params = {
+            'fixed_form': FixedForm()
+        }
 
     def get(self, request):
-        self.params['form'] = ExpenseForm(request.user)
+        self.params['expense_form'] = ExpenseForm(request.user)
         return render(request, 'moneyManage/expense.html', self.params)
 
     def post(self, request):
-        self.params['form'] = ExpenseForm(request.user)
+        self.params['expense_form'] = ExpenseForm(request.user)
         model = Expense()
         model.owner = request.user
         form = ExpenseForm(request.user, request.POST, instance=model)
@@ -64,4 +66,4 @@ class FixedView(TemplateView, LoginRequiredMixin):
         model.owner = request.user
         form = FixedForm(request.POST, instance=model)
         form.save()
-        return render(request, 'moneyManage/fixed.html', self.params)
+        return render(request, 'moneyManage/expense.html', self.params)
